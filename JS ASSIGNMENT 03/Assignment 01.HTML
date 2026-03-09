@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Indian States</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            transition: background 0.2s;
+        }
+
+        li:hover {
+            background-color: #f9f9f9;
+            color: #3498db;
+        }
+
+        .count {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Consonant States</h2>
+        <ul id="stateList"></ul>
+        <div class="count" id="countLabel"></div>
+    </div>
+
+    <script>
+        // 1. The full array
+        const states = [
+            "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+            "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand",
+            "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
+            "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab",
+            "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana", "Tripura",
+            "Uttar Pradesh", "Uttarakhand", "West Bengal"
+        ];
+
+        // 2. Filter logic (removes A, E, I, O, U)
+        const filtered = states.filter(state =>
+            !['A', 'E', 'I', 'O', 'U'].includes(state[0].toUpperCase())
+        );
+
+        // 3. Simple UI rendering
+        const listElement = document.getElementById('stateList');
+        const countElement = document.getElementById('countLabel');
+
+        filtered.forEach(state => {
+            let li = document.createElement('li');
+            li.textContent = state;
+            listElement.appendChild(li);
+        });
+
+        countElement.textContent = `Showing ${filtered.length} states (Vowels excluded).`;
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Averages</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        .report-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #1e293b;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .student-row {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .avg {
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .bar-bg {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            background: #3b82f6;
+            height: 100%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="report-card">
+        <h2>Student Performance</h2>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const students = [
+            { name: "Ram", scores: [80, 70, 60] },
+            { name: "Mohan", scores: [80, 70, 90] },
+            { name: "Sai", scores: [60, 70, 80] },
+            { name: "Hemang", scores: [90, 90, 80, 80] },
+        ];
+
+        const output = students.map(s => ({
+            name: s.name,
+            average: s.scores.reduce((a, b) => a + b) / s.scores.length
+        }));
+
+        const container = document.getElementById('results');
+
+        output.forEach(s => {
+            container.innerHTML += `
+            <div class="student-row">
+                <div class="flex">
+                    <span class="name">${s.name}</span>
+                    <span class="avg">${s.average}%</span>
+                </div>
+                <div class="bar-bg">
+                    <div class="bar-fill" style="width: ${s.average}%"></div>
+                </div>
+            </div>
+        `;
+        });
+    </script>
+
+</body>
+
+</html>

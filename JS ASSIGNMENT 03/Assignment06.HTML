@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Filter Display</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .array-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .box {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #edf2f7;
+            color: #4a5568;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #667eea;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a0aec0;
+            margin-bottom: 5px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e2e8f0;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="label">Original Array</div>
+        <div class="array-container" id="inputDisplay"></div>
+
+        <hr>
+
+        <div class="label">Filtered (Numbers > 5)</div>
+        <div class="array-container" id="outputDisplay"></div>
+    </div>
+
+    <script>
+        const inputArr = [1, 2, 3, 9, 10, 7, 5, 4, 3];
+        const answer = inputArr.filter(num => num > 5);
+
+        const inputDiv = document.getElementById('inputDisplay');
+        const outputDiv = document.getElementById('outputDisplay');
+
+        // Render Input
+        inputArr.forEach(num => {
+            const div = document.createElement('div');
+            div.className = 'box';
+            div.textContent = num;
+            inputDiv.appendChild(div);
+        });
+
+        // Render Output
+        answer.forEach(num => {
+            const div = document.createElement('div');
+            div.className = 'box highlight';
+            div.textContent = num;
+            outputDiv.appendChild(div);
+        });
+    </script>
+
+</body>
+
+</html>

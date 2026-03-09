@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #1f2937;
+            font-size: 1.5rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            resize: none;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+
+        .stats {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        .highlight {
+            color: #6366f1;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Word Counter</h2>
+        <textarea id="input" placeholder="Paste your paragraph here..."></textarea>
+        <div class="stats">
+            <div>Words: <span id="wordCount" class="highlight">0</span></div>
+            <div>Characters: <span id="charCount" class="highlight">0</span></div>
+        </div>
+    </div>
+
+    <script>
+        const textArea = document.getElementById('input');
+        const wordDisplay = document.getElementById('wordCount');
+        const charDisplay = document.getElementById('charCount');
+
+        textArea.addEventListener('input', () => {
+            const text = textArea.value.trim();
+
+            // Count Logic
+            const words = text === "" ? 0 : text.split(/\s+/).length;
+            const chars = textArea.value.length;
+
+            // UI Update
+            wordDisplay.textContent = words;
+            charDisplay.textContent = chars;
+        });
+    </script>
+
+</body>
+
+</html>

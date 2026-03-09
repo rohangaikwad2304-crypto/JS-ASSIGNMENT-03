@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reverse Words</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e6f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #0066cc;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 15px 0;
+            border: 1px solid #0066cc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #004d99;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #003366;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Reverse Words</h2>
+
+        <input type="text" id="textInput" value="I love my India">
+
+        <br>
+        <button onclick="reverseWords()">Reverse Words</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function reverseWords() {
+            let str = document.getElementById("textInput").value;
+
+            // Split sentence into words, reverse, join again
+            let reversed = str.split(" ").reverse().join(" ");
+
+            document.getElementById("result").innerHTML =
+                "Reversed Sentence: " + reversed;
+        }
+    </script>
+
+</body>
+
+</html>

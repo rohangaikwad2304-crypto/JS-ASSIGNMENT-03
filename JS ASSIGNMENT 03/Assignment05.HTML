@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Word Replace Function</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .box {
+            background: white;
+            width: 450px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Replace Wrong Word</h2>
+
+        <input type="text" id="sentence" value="India is a poor country">
+
+        <input type="text" id="wrong" placeholder="Enter wrong word">
+
+        <input type="text" id="correct" placeholder="Enter correct word">
+
+        <br>
+        <button onclick="replaceWord()">Replace</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function correctfn(string, wrong, correct) {
+            return string.replace(wrong, correct);
+        }
+
+        function replaceWord() {
+            let sentence = document.getElementById("sentence").value;
+            let wrong = document.getElementById("wrong").value;
+            let correct = document.getElementById("correct").value;
+
+            let updatedSentence = correctfn(sentence, wrong, correct);
+
+            document.getElementById("result").innerHTML =
+                "Updated Sentence: " + updatedSentence;
+        }
+    </script>
+
+</body>
+
+</html>

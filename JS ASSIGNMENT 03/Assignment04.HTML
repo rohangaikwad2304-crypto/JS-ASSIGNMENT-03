@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vowel & Consonant Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .box {
+            background: white;
+            width: 420px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: 95%;
+            height: 80px;
+            padding: 8px;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Vowel & Consonant Counter</h2>
+
+        <textarea id="textInput">
+India is a beautiful country with rich culture
+        </textarea>
+
+        <br>
+        <button onclick="countLetters()">Count</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function countLetters() {
+            let str = document.getElementById("textInput").value.toLowerCase();
+
+            if (str.length < 20) {
+                document.getElementById("result").innerHTML =
+                    "Please enter at least 20 characters.";
+                return;
+            }
+
+            let vowels = 0;
+            let consonants = 0;
+
+            for (let i = 0; i < str.length; i++) {
+                let ch = str[i];
+
+                if (ch >= 'a' && ch <= 'z') {
+                    if ("aeiou".includes(ch)) {
+                        vowels++;
+                    } else {
+                        consonants++;
+                    }
+                }
+            }
+
+            document.getElementById("result").innerHTML =
+                "Vowels: " + vowels + "<br>Consonants: " + consonants;
+        }
+    </script>
+
+</body>
+
+</html>

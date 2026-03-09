@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Repeated Digit Sum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .box {
+            background: white;
+            width: 350px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Repeated Sum of Digits</h2>
+
+        <input type="number" id="number" placeholder="Enter a number">
+
+        <br>
+        <button onclick="calculate()">Calculate</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function repeatedDigitSum(num) {
+
+            while (num >= 10) {
+                let sum = 0;
+
+                while (num > 0) {
+                    sum += num % 10;
+                    num = Math.floor(num / 10);
+                }
+
+                num = sum;
+            }
+
+            return num;
+        }
+
+        function calculate() {
+            let number = parseInt(document.getElementById("number").value);
+
+            if (isNaN(number)) {
+                document.getElementById("result").innerHTML =
+                    "Please enter a valid number.";
+                return;
+            }
+
+            let result = repeatedDigitSum(number);
+
+            document.getElementById("result").innerHTML =
+                "Final Single Digit: " + result;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>String Splice Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            width: 350px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Array Splice Example</h2>
+        <p><b>Original String:</b> INDIA</p>
+        <button onclick="changeString()">Convert to INDONESIA</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function changeString() {
+            let string = "INDIA";
+
+            // Convert string to array
+            let arr = string.split("");
+
+            // Insert "ONES" after index 3 (after IND)
+            arr.splice(3, 0, "O", "N", "E", "S");
+
+            // Join back to string
+            let newString = arr.join("");
+
+            document.getElementById("result").innerHTML =
+                "New String: " + newString;
+        }
+    </script>
+
+</body>
+
+</html>
